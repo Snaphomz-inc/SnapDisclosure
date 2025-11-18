@@ -1,0 +1,29 @@
+# Flask==2.3.3
+# Werkzeug==2.3.7
+# PyPDF2==3.0.1
+# flask-cors==4.0.0
+
+# --- Core Framework ---
+Flask==3.0.3
+Flask-Cors==4.0.0
+
+# --- File Handling & Parsing ---
+PyPDF2==3.0.1
+python-dotenv==1.0.1
+Werkzeug==3.0.4
+
+# --- AI Integrations ---
+openai==0.28
+
+# --- Utilities ---
+requests==2.32.3
+tqdm==4.66.5
+
+# --- Optional (if using logging, safe completion, etc.) ---
+tenacity==8.3.0
+
+# --- If using temporary files / OS operations ---
+pathlib==1.0.1
+
+# --- If using advanced PDF text extraction (optional upgrade) ---
+pymupdf==1.24.7
