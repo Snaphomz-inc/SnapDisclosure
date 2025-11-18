@@ -16,10 +16,6 @@ import openai
 load_dotenv()
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
-AZURE_ENDPOINT = os.getenv("AZURE_DOCUMENT_INTELLIGENCE_ENDPOINT") 
-AZURE_KEY = os.getenv("AZURE_DOCUMENT_INTELLIGENCE_KEY")
-AZURE_MODEL_ID = os.getenv("AZURE_MODEL_ID", "prebuilt-document")  
-
 if not openai.api_key:
     raise RuntimeError("OPENAI_API_KEY missing in .env file")
 
