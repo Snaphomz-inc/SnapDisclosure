@@ -16,7 +16,7 @@ export default function FileUploadBox({
   onFileSelect,
   onUploadSuccess,
   onUploadError,
-  acceptedFormats = [".zip"],
+  acceptedFormats = [".zip", ".pdf"],
   maxSizeMB = 200,
   className,
   disabled = false,
@@ -198,7 +198,7 @@ export default function FileUploadBox({
               )}
             </div>
             <p className="text-black/50 text-center text-xs font-normal leading-[145%]">
-              ZIP (max. {maxSizeMB}MB)
+              ZIP or PDF (max. {maxSizeMB}MB)
             </p>
           </div>
 

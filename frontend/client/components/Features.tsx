@@ -1,4 +1,9 @@
-export default function Features() {
+
+interface FeaturesProps {
+  onGetStarted?: () => void;
+}
+
+export default function Features({ onGetStarted }: FeaturesProps) {
   return (
     <section id="features" className="relative py-20 md:py-32 overflow-hidden">
       {/* Background Effects */}
@@ -175,7 +180,9 @@ export default function Features() {
             </div>
           </div>
 
-          <button className="px-6 py-2 rounded-full bg-gradient-to-b from-[rgba(255,143,76,0.8)] to-[rgba(242,93,4,0.8)] shadow-[0_-2px_2px_0_rgba(255,255,255,0.5)_inset] text-white text-base font-medium hover:shadow-[0_-2px_4px_0_rgba(255,255,255,0.6)_inset] transition-all">
+          <button
+          onClick={onGetStarted}
+          className="px-6 py-2 rounded-full bg-gradient-to-b from-[rgba(255,143,76,0.8)] to-[rgba(242,93,4,0.8)] shadow-[0_-2px_2px_0_rgba(255,255,255,0.5)_inset] text-white text-base font-medium hover:shadow-[0_-2px_4px_0_rgba(255,255,255,0.6)_inset] transition-all">
             Start Analyzing
           </button>
         </div>

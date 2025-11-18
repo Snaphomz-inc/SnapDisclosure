@@ -5,11 +5,14 @@ import Features from "@/components/Features";
 import HowItWorks from "@/components/HowItWorks";
 import FindYourHome from "@/components/FindYourHome";
 import Footer from "@/components/Footer";
-import FileUploadBox from "@/components/FileUploadBox";
-import FileListDisplay from "@/components/FileListDisplay";
 import { UploadResponse, FileInfo } from "@shared/api";
 
-export default function Index() {
+// Add a prop type for reset handler from App.tsx
+interface IndexProps {
+  onResetHero?: () => void;
+}
+
+export default function Index({ onResetHero }: IndexProps) {
   const [uploadedFiles, setUploadedFiles] = useState<FileInfo[] | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -32,42 +35,17 @@ export default function Index() {
   const handleReset = () => {
     setUploadedFiles(null);
     setError(null);
+    onResetHero?.(); // trigger App-level reset if provided
+    window.scrollTo({ top: 0, behavior: "smooth" }); // scroll to top
   };
 
   return (
     <div className="min-h-screen bg-[#0E0702] text-white">
-      <Header />
-      <Hero />
-      <Features />
+      <Header onGetStarted={handleReset} />
+      <Hero onReset={handleReset} />
+      <Features onGetStarted={handleReset} />
       <HowItWorks />
       <FindYourHome />
-
-      {/* --- ZIP Upload Section --- */}
-      <div className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          {!uploadedFiles ? (
-            <>
-              <FileUploadBox
-                onUploadSuccess={handleUploadSuccess}
-                onUploadError={handleUploadError}
-                acceptedFormats={[".zip"]}
-                maxSizeMB={200}
-              />
-              {error && (
-                <div className="mt-6 p-4 bg-red-900/50 border border-red-500 rounded-lg text-center">
-                  <p className="text-red-200">{error}</p>
-                </div>
-              )}
-            </>
-          ) : (
-            <FileListDisplay
-              files={uploadedFiles}
-              onClose={handleReset}
-            />
-          )}
-        </div>
-      </div>
-
       <Footer />
     </div>
   );

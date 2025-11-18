@@ -6,6 +6,19 @@ export interface SummaryPoint {
   is_red_flag?: boolean; // ✅ Optional field to mark red flag points
 }
 
+export interface ReportItem {
+  section: string;
+  label: string;
+  observed?: string | number;
+  expected?: string;
+  status: "PASS" | "FAIL" | "WARN" | "INFO";
+  note?: string;
+  computed?: {
+    loan_amount?: number;
+  };
+}
+
+
 export interface FileInfo {
   file_name: string;
   title?: string;

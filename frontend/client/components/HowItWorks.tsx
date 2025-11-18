@@ -36,7 +36,7 @@ export default function HowItWorks() {
         </svg>
       ),
       title: "Upload Your Archive",
-      description: "Drag in any ZIP folder from your desktop",
+      description: "Drag in any ZIP folder or a PDF from your desktop",
     },
     {
       icon: (
@@ -139,3 +139,5 @@ export default function HowItWorks() {
     </section>
   );
 }
+
+
